@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\General;
+use App\Models\Placa;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -36,6 +37,18 @@ class DatabaseSeeder extends Seeder
             [
                 'dni' => '11223344',
                 'nombres' => 'Carlos Ruiz',
+            ],
+        ]);
+        // Placa
+        Placa::factory()->createMany([
+            [
+                'placa' => 'PLA-01',
+            ],
+            [
+                'placa' => 'PLA-02',
+            ],
+            [
+                'placa' => 'PLA-03',
             ],
         ]);
     }
