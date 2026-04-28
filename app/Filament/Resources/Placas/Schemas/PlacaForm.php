@@ -12,6 +12,7 @@ class PlacaForm
         return $schema
             ->components([
                 TextInput::make('placa')
+                    ->unique(ignoreRecord: true)
                     ->required(),
             ]);
     }

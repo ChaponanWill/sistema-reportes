@@ -12,12 +12,6 @@ class PlacaInfolist
         return $schema
             ->components([
                 TextEntry::make('placa'),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
             ]);
     }
 }
