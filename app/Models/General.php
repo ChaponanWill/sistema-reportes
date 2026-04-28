@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class General extends Model
 {
+    use HasFactory;
     protected $guarded = [];
+
+    // hasMany Supervisor
+    public function supervisors():HasMany{
+        return $this->hasMany(Supervisor::class);
+    }
 }
