@@ -14,7 +14,10 @@ class SupervisorInfolist
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
                 TextEntry::make('general.dni')
-                    ->label('General'),
+                    ->label('General')
+                    ->getStateUsing(function ($record){
+                        return $record->general->dni . ' - ' . $record->general->nombres;
+                    }),
                 
             ]);
     }

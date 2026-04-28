@@ -23,7 +23,7 @@ class DiasResource extends Resource
     protected static ?string $navigationLabel = 'Días de Cosecha';
     protected static ?string $pluralLabel = 'Días de Cosecha';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::CalendarDays;
 
     public static function form(Schema $schema): Schema
     {
