@@ -19,8 +19,11 @@ use Filament\Tables\Table;
 class SupervisorResource extends Resource
 {
     protected static ?string $model = Supervisor::class;
+    // Cambiar nombres para el menú de navegación
+    protected static ?string $navigationLabel = 'Supervisores';
+    protected static ?string $pluralLabel = 'Supervisores';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
     public static function form(Schema $schema): Schema
     {

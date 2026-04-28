@@ -24,9 +24,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // General
-        General::factory()->create([
-            'dni' => '87654321',
-            'nombres' => 'Juan Pérez',
+        General::factory()->createMany([
+            [
+                'dni' => '87654321',
+                'nombres' => 'Juan Pérez',
+            ],
+            [
+                'dni' => '12345678',
+                'nombres' => 'María López',
+            ],
+            [
+                'dni' => '11223344',
+                'nombres' => 'Carlos Ruiz',
+            ],
         ]);
     }
 }

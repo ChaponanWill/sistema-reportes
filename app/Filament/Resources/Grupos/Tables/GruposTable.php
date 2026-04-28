@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Supervisors\Tables;
+namespace App\Filament\Resources\Grupos\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,18 +9,18 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SupervisorsTable
+class GruposTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('dni')
+                TextColumn::make('Grupo')
                     ->searchable(),
-                TextColumn::make('nombres')
-                    ->searchable(),
-                TextColumn::make('general.dni')
-                    ->label('S. General')
+                TextColumn::make('supervisor.dni')
+                ->getStateUsing(function($record){
+                    return $record->supervisor->dni . ' - ' . $record->supervisor->nombres;
+                })
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

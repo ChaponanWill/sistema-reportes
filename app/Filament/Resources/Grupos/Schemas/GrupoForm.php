@@ -1,29 +1,24 @@
 <?php
 
-namespace App\Filament\Resources\Supervisors\Schemas;
+namespace App\Filament\Resources\Grupos\Schemas;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class SupervisorForm
+class GrupoForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('dni')
-                    ->numeric()
-                    // Asegura que el DNI tenga exactamente 8 dígitos
-                    ->length(8)
+                TextInput::make('Grupo')
                     ->unique(ignoreRecord: true)
                     ->required(),
-                TextInput::make('nombres')
-                    ->required(),
-                Select::make('general_id')
-                    ->relationship('general', 'dni')
-                    ->preload()
+                Select::make('supervisor_id')
+                    ->relationship('supervisor', 'dni')
                     ->searchable()
+                    ->preload()
                     ->getOptionLabelFromRecordUsing(fn($record)=>$record->dni . ' - ' . $record->nombres)
                     ->required(),
             ]);
