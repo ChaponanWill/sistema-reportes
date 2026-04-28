@@ -12,7 +12,12 @@ class GeneralForm
         return $schema
             ->components([
                 TextInput::make('dni')
-                    ->required(),
+                    ->numeric()
+                    // Asegura que el DNI tenga exactamente 8 dígitos
+                    ->minLength(8)
+                    ->maxLength(8)
+                    ->required()
+                    ->unique(ignoreRecord: true),
                 TextInput::make('nombres')
                     ->required(),
             ]);

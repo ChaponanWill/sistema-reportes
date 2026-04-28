@@ -20,7 +20,11 @@ class GeneralResource extends Resource
 {
     protected static ?string $model = General::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    // Cambiar nombres para el menú de navegación
+    protected static ?string $navigationLabel = 'Generales';
+    protected static ?string $pluralLabel = 'Generales';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ShieldCheck;
 
     public static function form(Schema $schema): Schema
     {

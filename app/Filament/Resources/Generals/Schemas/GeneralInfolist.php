@@ -13,12 +13,6 @@ class GeneralInfolist
             ->components([
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
             ]);
     }
 }
