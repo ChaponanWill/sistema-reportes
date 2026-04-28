@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             // DNI, Nombres
             $table->string('dni', 8)->unique();
-            $table->string('nombres', 100);
+            $table->string('nombres');
             $table->timestamps();
         });
     }
