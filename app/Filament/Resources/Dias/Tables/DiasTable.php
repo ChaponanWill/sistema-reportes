@@ -25,8 +25,9 @@ class DiasTable
                     ->getStateUsing(fn($record) => $record->cosechador ? $record->cosechador->dni . ' - ' . $record->cosechador->nombres : '-')
                     ->searchable(),
                 // text colum para mostrar el DNI y nombres del supervisor relacionado con Grupo
-                TextColumn::make('grupo.supervisor')
+                TextColumn::make('grupo.supervisor.dni')
                     ->label('Supervisor')
+                    ->searchable()
                     ->getStateUsing(fn($record) => $record->grupo && $record->grupo->supervisor ? $record->grupo->supervisor->dni . ' - ' . $record->grupo->supervisor->nombres : '-'),
                 TextColumn::make('grupo.Grupo')
                     ->searchable(),

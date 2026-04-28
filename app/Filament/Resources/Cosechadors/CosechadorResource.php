@@ -19,6 +19,9 @@ use Filament\Tables\Table;
 class CosechadorResource extends Resource
 {
     protected static ?string $model = Cosechador::class;
+        // Cambiar nombres para el menú de navegación
+    protected static ?string $navigationLabel = 'Cosechadores';
+    protected static ?string $pluralLabel = 'Cosechadores';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

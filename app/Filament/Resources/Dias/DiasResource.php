@@ -19,6 +19,9 @@ use Filament\Tables\Table;
 class DiasResource extends Resource
 {
     protected static ?string $model = Dias::class;
+        // Cambiar nombres para el menú de navegación
+    protected static ?string $navigationLabel = 'Días de Cosecha';
+    protected static ?string $pluralLabel = 'Días de Cosecha';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
