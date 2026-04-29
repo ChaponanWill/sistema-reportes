@@ -22,8 +22,10 @@ class CosechadorsTable
                 TextColumn::make('placa.placa')
                     ->searchable(),
                 TextColumn::make('grupo.Grupo')
-                    ->getStateUsing(fn($record) => $record->grupo->Grupo . ' - ' . $record->grupo->supervisor->nombres)
                     ->searchable(),
+                TextColumn::make('grupo.supervisor.nombres')
+                    ->searchable(),
+                
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
