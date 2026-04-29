@@ -41,6 +41,7 @@ class PlacaResource extends Resource
     {
         return [
             //
+            RelationManagers\CosechadoresRelationManager::class,
         ];
     }
 
