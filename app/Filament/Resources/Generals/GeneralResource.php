@@ -21,8 +21,8 @@ class GeneralResource extends Resource
     protected static ?string $model = General::class;
 
     // Cambiar nombres para el menú de navegación
-    protected static ?string $navigationLabel = 'Generales';
-    protected static ?string $pluralLabel = 'Generales';
+    protected static ?string $navigationLabel = 'S. Generales';
+    protected static ?string $pluralLabel = 'Supervisores Generales';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ShieldCheck;
 

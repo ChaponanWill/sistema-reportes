@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Supervisors\Tables;
+namespace App\Filament\Resources\Dias\Tables;
 
+use Dom\Text;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -9,21 +10,26 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SupervisorsTable
+class DiasTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('dni')
+                TextColumn::make('fecha')
+                    ->date('d/m/Y')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('cosechador.dni')
+                    ->label('Cosechador')
+                    ->getStateUsing(fn($record) => $record->cosechador ? $record->cosechador->dni . ' - ' . $record->cosechador->nombres : '-')
                     ->searchable(),
-                TextColumn::make('nombres')
-                    ->searchable(),
-                TextColumn::make('general.dni')
-                    ->label('S. General')
-                    ->getStateUsing(function($record){
-                        return $record->general->dni . ' - ' . $record->general->nombres;
-                    })
+                // text colum para mostrar el DNI y nombres del supervisor relacionado con Grupo
+                TextColumn::make('grupo.supervisor.dni')
+                    ->label('Supervisor')
+                    ->searchable()
+                    ->getStateUsing(fn($record) => $record->grupo && $record->grupo->supervisor ? $record->grupo->supervisor->dni . ' - ' . $record->grupo->supervisor->nombres : '-'),
+                TextColumn::make('grupo.Grupo')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

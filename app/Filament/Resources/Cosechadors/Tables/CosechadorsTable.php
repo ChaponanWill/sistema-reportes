@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Supervisors\Tables;
+namespace App\Filament\Resources\Cosechadors\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -9,7 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SupervisorsTable
+class CosechadorsTable
 {
     public static function configure(Table $table): Table
     {
@@ -19,11 +19,7 @@ class SupervisorsTable
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
-                TextColumn::make('general.dni')
-                    ->label('S. General')
-                    ->getStateUsing(function($record){
-                        return $record->general->dni . ' - ' . $record->general->nombres;
-                    })
+                TextColumn::make('placa.placa')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
