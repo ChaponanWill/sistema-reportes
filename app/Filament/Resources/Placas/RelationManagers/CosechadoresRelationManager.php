@@ -37,6 +37,7 @@ class CosechadoresRelationManager extends RelationManager
             ->recordTitleAttribute('dni')
             ->columns([
                 TextColumn::make('dni')
+                    ->label('DNI - Cosechador')
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
@@ -58,13 +59,13 @@ class CosechadoresRelationManager extends RelationManager
             ])
             ->recordActions([
                 EditAction::make(),
-                DissociateAction::make(),
-                DeleteAction::make(),
+                // DissociateAction::make(),
+                // DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DissociateBulkAction::make(),
-                    DeleteBulkAction::make(),
+                    // DissociateBulkAction::make(),
+                    // DeleteBulkAction::make(),
                 ]),
             ]);
     }
