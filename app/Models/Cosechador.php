@@ -13,4 +13,8 @@ class Cosechador extends Model
     public function placa():BelongsTo{
         return $this->belongsTo(Placa::class);
     }
+    // BelongsTo Grupo
+    public function grupo():BelongsTo{
+        return $this->belongsTo(Grupo::class);
+    }
 }

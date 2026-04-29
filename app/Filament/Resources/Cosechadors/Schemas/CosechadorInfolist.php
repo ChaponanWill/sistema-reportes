@@ -13,8 +13,16 @@ class CosechadorInfolist
             ->components([
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
-                TextEntry::make('placa.placa')
-                    ->label('Placa'),  
+                TextEntry::make('placa.id')
+                    ->label('Placa'),
+                TextEntry::make('grupo.id')
+                    ->label('Grupo'),
+                TextEntry::make('created_at')
+                    ->dateTime()
+                    ->placeholder('-'),
+                TextEntry::make('updated_at')
+                    ->dateTime()
+                    ->placeholder('-'),
             ]);
     }
 }

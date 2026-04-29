@@ -19,7 +19,9 @@ class CosechadorsTable
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
-                TextColumn::make('placa.placa')
+                TextColumn::make('placa.id')
+                    ->searchable(),
+                TextColumn::make('grupo.id')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

@@ -17,7 +17,10 @@ class CosechadorForm
                 TextInput::make('nombres')
                     ->required(),
                 Select::make('placa_id')
-                    ->relationship('placa', 'placa')
+                    ->relationship('placa', 'id')
+                    ->required(),
+                Select::make('grupo_id')
+                    ->relationship('grupo', 'id')
                     ->required(),
             ]);
     }

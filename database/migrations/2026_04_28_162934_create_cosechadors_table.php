@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('cosechadors', function (Blueprint $table) {
             $table->id();
-            // DNI, nombres, placa
+            // DNI, nombres, placa, Grupo
             $table->string('dni')->unique();
             $table->string('nombres');
             $table->foreignId('placa_id')->constrained()->restrictOnDelete();
+            $table->foreignId('grupo_id')->constrained()->restrictOnDelete();
             $table->timestamps();
         });
     }
