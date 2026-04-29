@@ -12,7 +12,7 @@ class DiaInfolist
         return $schema
             ->components([
                 TextEntry::make('fecha')
-                    ->date(),
+                    ->date('d/m/Y'),
                 TextEntry::make('cosechador.dni')
                     // dni + nombres
                     ->getStateUsing(fn($record) => $record->cosechador->dni . ' - ' . $record->cosechador->nombres)

@@ -16,7 +16,9 @@ class DiasTable
         return $table
             ->columns([
                 TextColumn::make('fecha')
-                    ->date()
+                    ->date('d/m/Y')
+                    ->searchable()
+                    
                     ->sortable(),
                 TextColumn::make('cosechador.dni')
                     ->label('Dni')
