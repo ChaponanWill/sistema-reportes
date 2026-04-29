@@ -44,7 +44,7 @@ class GeneralResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+                RelationManagers\SupervisorsRelationManager::class,
         ];
     }
 
