@@ -17,10 +17,11 @@ class CosechadorForm
                 TextInput::make('nombres')
                     ->required(),
                 Select::make('placa_id')
-                    ->relationship('placa', 'id')
+                    ->relationship('placa', 'placa')
                     ->required(),
                 Select::make('grupo_id')
-                    ->relationship('grupo', 'id')
+                    ->relationship('grupo', 'Grupo')
+                    ->getOptionLabelFromRecordUsing(fn($record)=>$record->Grupo . ' - ' . $record->supervisor->nombres)
                     ->required(),
             ]);
     }
