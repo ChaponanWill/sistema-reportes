@@ -16,8 +16,9 @@ class Grupo extends Model
         return $this->belongsTo(Supervisor::class);
     }
 
-     // HasMany dias
-    public function dias():HasMany {
-        return $this->hasMany(Dias::class);
+    // HasMany con Cosechador
+    public function cosechadors():HasMany{
+        return $this->hasMany(Cosechador::class);   
+
     }
 }

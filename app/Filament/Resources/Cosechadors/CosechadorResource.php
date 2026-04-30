@@ -23,7 +23,11 @@ class CosechadorResource extends Resource
     protected static ?string $navigationLabel = 'Cosechadores';
     protected static ?string $pluralLabel = 'Cosechadores';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
+     protected static ?string $navigationLabel = 'Cosechadores';
+    protected static ?string $pluralLabel = 'Cosechadores';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
+
 
     public static function form(Schema $schema): Schema
     {

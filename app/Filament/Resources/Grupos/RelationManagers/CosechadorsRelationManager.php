@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Placas\RelationManagers;
+namespace App\Filament\Resources\Grupos\RelationManagers;
 
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
@@ -10,7 +10,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DissociateAction;
 use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
-
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -20,9 +19,9 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class CosechadoresRelationManager extends RelationManager
+class CosechadorsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'cosechadores';
+    protected static string $relationship = 'cosechadors';
 
     public function form(Schema $schema): Schema
     {
@@ -32,9 +31,8 @@ class CosechadoresRelationManager extends RelationManager
                     ->required(),
                 TextInput::make('nombres')
                     ->required(),
-
-                Select::make('grupo_id')
-                    ->relationship('grupo', 'id')
+                Select::make('placa_id')
+                    ->relationship('placa', 'placa')
                     ->required(),
             ]);
     }
@@ -45,14 +43,8 @@ class CosechadoresRelationManager extends RelationManager
             ->components([
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
-                TextEntry::make('grupo.id')
-                    ->label('Grupo'),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                TextEntry::make('placa.placa')
+                    ->label('Placa'),
             ]);
     }
 
@@ -62,13 +54,11 @@ class CosechadoresRelationManager extends RelationManager
             ->recordTitleAttribute('dni')
             ->columns([
                 TextColumn::make('dni')
-
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
-                TextColumn::make('grupo.id')
+                TextColumn::make('placa.placa')
                     ->searchable(),
-
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -86,17 +76,15 @@ class CosechadoresRelationManager extends RelationManager
                 AssociateAction::make(),
             ])
             ->recordActions([
-
                 ViewAction::make(),
                 EditAction::make(),
-                DissociateAction::make(),
-                DeleteAction::make(),
+                // DissociateAction::make(),
+                // DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DissociateBulkAction::make(),
-                    DeleteBulkAction::make(),
-
+                    // DissociateBulkAction::make(),
+                    // DeleteBulkAction::make(),
                 ]),
             ]);
     }

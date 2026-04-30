@@ -41,6 +41,7 @@ class GrupoResource extends Resource
     {
         return [
             //
+            RelationManagers\CosechadorsRelationManager::class,
         ];
     }
 

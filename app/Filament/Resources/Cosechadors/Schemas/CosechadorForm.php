@@ -18,6 +18,14 @@ class CosechadorForm
                     ->required(),
                 Select::make('placa_id')
                     ->relationship('placa', 'placa')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                Select::make('grupo_id')
+                    ->relationship('grupo', 'Grupo')
+                    ->searchable()
+                    ->preload()
+                    ->getOptionLabelFromRecordUsing(fn($record)=>$record->Grupo . ' - ' . $record->supervisor->nombres)
                     ->required(),
             ]);
     }

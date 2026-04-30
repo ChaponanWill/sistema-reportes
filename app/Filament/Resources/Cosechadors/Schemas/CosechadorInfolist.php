@@ -14,7 +14,10 @@ class CosechadorInfolist
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
                 TextEntry::make('placa.placa')
-                    ->label('Placa'),  
+                    ->label('Placa'),
+                TextEntry::make('grupo.Grupo')
+                    ->getStateUsing(fn($record) => $record->grupo->Grupo . ' - ' . $record->grupo->supervisor->nombres)
+                    ->label('Grupo'),
             ]);
     }
 }

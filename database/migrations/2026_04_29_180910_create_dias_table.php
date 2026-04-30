@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cosechadors', function (Blueprint $table) {
+        Schema::create('dias', function (Blueprint $table) {
             $table->id();
-            // DNI, nombres, placa, Grupo
-            $table->string('dni')->unique();
-            $table->string('nombres');
-            $table->foreignId('placa_id')->constrained()->restrictOnDelete();
+
+            // fecha, cosechador_id, grupo_id, placa_id
+            $table->date('fecha');
+            $table->foreignId('cosechador_id')->constrained()->restrictOnDelete();
             $table->foreignId('grupo_id')->constrained()->restrictOnDelete();
+            $table->foreignId('placa_id')->constrained()->restrictOnDelete();
+
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cosechadors');
+        Schema::dropIfExists('dias');
     }
 };

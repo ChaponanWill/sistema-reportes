@@ -21,6 +21,11 @@ class CosechadorsTable
                     ->searchable(),
                 TextColumn::make('placa.placa')
                     ->searchable(),
+                TextColumn::make('grupo.Grupo')
+                    ->searchable(),
+                TextColumn::make('grupo.supervisor.nombres')
+                    ->searchable(),
+                
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

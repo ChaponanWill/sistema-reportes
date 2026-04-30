@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Placas\RelationManagers;
+namespace App\Filament\Resources\Generals\RelationManagers;
 
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
@@ -10,9 +10,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DissociateAction;
 use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
-
 use Filament\Actions\ViewAction;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -20,9 +18,9 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class CosechadoresRelationManager extends RelationManager
+class SupervisorsRelationManager extends RelationManager
 {
-    protected static string $relationship = 'cosechadores';
+    protected static string $relationship = 'supervisors';
 
     public function form(Schema $schema): Schema
     {
@@ -31,10 +29,6 @@ class CosechadoresRelationManager extends RelationManager
                 TextInput::make('dni')
                     ->required(),
                 TextInput::make('nombres')
-                    ->required(),
-
-                Select::make('grupo_id')
-                    ->relationship('grupo', 'id')
                     ->required(),
             ]);
     }
@@ -45,8 +39,6 @@ class CosechadoresRelationManager extends RelationManager
             ->components([
                 TextEntry::make('dni'),
                 TextEntry::make('nombres'),
-                TextEntry::make('grupo.id')
-                    ->label('Grupo'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
@@ -62,13 +54,9 @@ class CosechadoresRelationManager extends RelationManager
             ->recordTitleAttribute('dni')
             ->columns([
                 TextColumn::make('dni')
-
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
-                TextColumn::make('grupo.id')
-                    ->searchable(),
-
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -86,7 +74,6 @@ class CosechadoresRelationManager extends RelationManager
                 AssociateAction::make(),
             ])
             ->recordActions([
-
                 ViewAction::make(),
                 EditAction::make(),
                 DissociateAction::make(),
@@ -96,7 +83,6 @@ class CosechadoresRelationManager extends RelationManager
                 BulkActionGroup::make([
                     DissociateBulkAction::make(),
                     DeleteBulkAction::make(),
-
                 ]),
             ]);
     }

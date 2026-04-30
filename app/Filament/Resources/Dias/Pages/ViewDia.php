@@ -3,18 +3,17 @@
 namespace App\Filament\Resources\Dias\Pages;
 
 use App\Filament\Resources\Dias\DiaResource;
-use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\EditAction;
+use Filament\Resources\Pages\ViewRecord;
 
-class ListDias extends ListRecords
+class ViewDia extends ViewRecord
 {
     protected static string $resource = DiaResource::class;
-
 
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            EditAction::make(),
         ];
     }
 }

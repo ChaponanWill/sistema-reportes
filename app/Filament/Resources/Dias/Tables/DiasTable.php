@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Dias\Tables;
 
 use Dom\Text;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -21,15 +22,15 @@ class DiasTable
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('cosechador.dni')
-                    ->label('Cosechador')
-                    ->getStateUsing(fn($record) => $record->cosechador ? $record->cosechador->dni . ' - ' . $record->cosechador->nombres : '-')
+                    ->label('Dni')
                     ->searchable(),
-                // text colum para mostrar el DNI y nombres del supervisor relacionado con Grupo
-                TextColumn::make('grupo.supervisor.dni')
-                    ->label('Supervisor')
-                    ->searchable()
-                    ->getStateUsing(fn($record) => $record->grupo && $record->grupo->supervisor ? $record->grupo->supervisor->dni . ' - ' . $record->grupo->supervisor->nombres : '-'),
+                TextColumn::make('cosechador.nombres')
+                    ->searchable(),
                 TextColumn::make('grupo.Grupo')
+                    ->searchable(),
+                TextColumn::make('grupo.supervisor.nombres')
+                    ->searchable(),
+                TextColumn::make('placa.placa')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
