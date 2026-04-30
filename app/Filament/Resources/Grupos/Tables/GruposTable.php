@@ -18,9 +18,9 @@ class GruposTable
                 TextColumn::make('Grupo')
                     ->searchable(),
                 TextColumn::make('supervisor.dni')
-                ->getStateUsing(function($record){
-                    return $record->supervisor->dni . ' - ' . $record->supervisor->nombres;
-                })
+                    ->getStateUsing(function ($record) {
+                        return $record->supervisor->dni . ' - ' . $record->supervisor->nombres;
+                    })
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

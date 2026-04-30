@@ -19,5 +19,6 @@ class Grupo extends Model
     // HasMany con Cosechador
     public function cosechadors():HasMany{
         return $this->hasMany(Cosechador::class);   
+
     }
 }

@@ -10,6 +10,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DissociateAction;
 use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
+
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -31,6 +32,7 @@ class CosechadoresRelationManager extends RelationManager
                     ->required(),
                 TextInput::make('nombres')
                     ->required(),
+
                 Select::make('grupo_id')
                     ->relationship('grupo', 'id')
                     ->required(),
@@ -60,11 +62,13 @@ class CosechadoresRelationManager extends RelationManager
             ->recordTitleAttribute('dni')
             ->columns([
                 TextColumn::make('dni')
+
                     ->searchable(),
                 TextColumn::make('nombres')
                     ->searchable(),
                 TextColumn::make('grupo.id')
                     ->searchable(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -82,6 +86,7 @@ class CosechadoresRelationManager extends RelationManager
                 AssociateAction::make(),
             ])
             ->recordActions([
+
                 ViewAction::make(),
                 EditAction::make(),
                 DissociateAction::make(),
@@ -91,6 +96,7 @@ class CosechadoresRelationManager extends RelationManager
                 BulkActionGroup::make([
                     DissociateBulkAction::make(),
                     DeleteBulkAction::make(),
+
                 ]),
             ]);
     }

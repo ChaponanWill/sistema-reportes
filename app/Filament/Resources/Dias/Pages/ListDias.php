@@ -10,6 +10,7 @@ class ListDias extends ListRecords
 {
     protected static string $resource = DiaResource::class;
 
+
     protected function getHeaderActions(): array
     {
         return [

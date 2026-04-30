@@ -21,7 +21,9 @@ class SupervisorsTable
                     ->searchable(),
                 TextColumn::make('general.dni')
                     ->label('S. General')
+
                      ->getStateUsing(function($record){
+
                         return $record->general->dni . ' - ' . $record->general->nombres;
                     })
                     ->searchable(),

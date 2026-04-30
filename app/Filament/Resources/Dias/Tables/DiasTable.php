@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Dias\Tables;
 
+use Dom\Text;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -18,7 +20,6 @@ class DiasTable
                 TextColumn::make('fecha')
                     ->date('d/m/Y')
                     ->searchable()
-                    
                     ->sortable(),
                 TextColumn::make('cosechador.dni')
                     ->label('Dni')

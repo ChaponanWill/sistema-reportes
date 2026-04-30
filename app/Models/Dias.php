@@ -4,17 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Cosechador extends Model
+class Dias extends Model
 {
     protected $guarded = [];
-
-    // BelongsTo placa
-    public function placa():BelongsTo{
-        return $this->belongsTo(Placa::class);
+    // BelongsTo cosechador y Grupo
+    public function cosechador():BelongsTo{
+        return $this->belongsTo(Cosechador::class);
     }
-    // BelongsTo Grupo
     public function grupo():BelongsTo{
         return $this->belongsTo(Grupo::class);
     }
